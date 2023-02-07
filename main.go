@@ -22,7 +22,7 @@ func main() {
 		}
 		newBytes := toSquare(bytes)
 		format := getDataType(&newBytes)
-		name := strings.Split(filepath.Base(os.Args[1]), ".")[1] + "-square"
+		name := strings.Split(filepath.Base(os.Args[1]), ".")[0] + "-square"
 		if format == "image/png" {
 			name += ".png"
 		} else {
@@ -49,7 +49,7 @@ func main() {
 
 		newBytes := toSquare(bytes)
 		format := getDataType(&newBytes)
-		name := strings.Split(filepath.Base(os.Args[1]), ".")[1] + "-square"
+		name := strings.Split(filepath.Base(os.Args[1]), ".")[0] + "-square"
 
 		if os.Args[2] == "jpg" && format == "image/png" {
 			newBytes = pngToJpeg(newBytes)
@@ -61,6 +61,5 @@ func main() {
 
 		os.WriteFile(name, newBytes, 0644)
 		return
-
 	}
 }
